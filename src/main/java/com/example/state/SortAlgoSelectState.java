@@ -19,6 +19,7 @@ public class SortAlgoSelectState implements UIState {
         System.out.println("2. Insertion Sort");
         System.out.println("3. Selection Sort");
         System.out.println("4. Merge Sort");
+        System.out.println("5. Exit");
         System.out.print("\nSelect the sorting algorithm to visualize: ");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
