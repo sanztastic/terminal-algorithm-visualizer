@@ -11,29 +11,29 @@ public class AlgorithmTypeSelectionState implements UIState {
     }
 
     @Override
-    public int printScreen() {
+    public String printScreen() {
         System.out.println("Select which algorithm to visualize: ");
         System.out.println("1. Sorting Algorithms");
         System.out.println("2. Path Finding Algorithms");
         System.out.println("3. Exit");
         System.out.print("\nSelect the type of algorithm to visualize: ");
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
         return choice;
     }
 
     @Override
-    public void handleInput(int input) {
+    public void handleInput(String input) {
         switch (input) {
-            case 1:
+            case "1":
                 visualizer.setState(new SortAlgoSelectState(visualizer));
                 visualizer.start();
                 break;
-            case 2:
+            case "2":
                 visualizer.setState(new PathFindingAlgoSelectState(visualizer));
                 visualizer.start();
                 break;
-            case 3:
+            case "3":
                 System.out.println("Exiting the application.");
                 System.exit(0);
                 break;

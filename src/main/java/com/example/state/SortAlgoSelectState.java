@@ -12,7 +12,7 @@ public class SortAlgoSelectState implements UIState {
     }
 
     @Override
-    public int printScreen() {
+    public String printScreen() {
         System.out.println("================================");
         System.out.println("Select which sorting algorithm to visualize: ");
         System.out.println("1. Bubble Sort");
@@ -21,12 +21,12 @@ public class SortAlgoSelectState implements UIState {
         System.out.println("4. Merge Sort");
         System.out.print("\nSelect the sorting algorithm to visualize: ");
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
         return choice;
     }
 
     @Override
-    public void handleInput(int input) {
+    public void handleInput(String input) {
     }
 
 }

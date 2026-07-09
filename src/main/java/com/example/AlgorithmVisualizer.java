@@ -11,7 +11,7 @@ public class AlgorithmVisualizer {
     }
 
     public void start(){
-        int input = state.printScreen();
+        String input = state.printScreen();
         state.handleInput(input);
     }
 
