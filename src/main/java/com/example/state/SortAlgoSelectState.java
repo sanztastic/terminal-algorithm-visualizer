@@ -2,6 +2,9 @@ package com.example.state;
 
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
+import com.example.algorithms.BubbleSortAlgorithm;
+import com.example.constants.ANSIEscape;
+import com.example.facade.AlgorithmRunnerFacade;
 
 public class SortAlgoSelectState implements UIState {
 
@@ -19,7 +22,7 @@ public class SortAlgoSelectState implements UIState {
         System.out.println("2. Insertion Sort");
         System.out.println("3. Selection Sort");
         System.out.println("4. Merge Sort");
-        System.out.println("5. Exit");
+        System.out.println("5. Back to Main Menu");
         System.out.print("\nSelect the sorting algorithm to visualize: ");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
@@ -28,6 +31,27 @@ public class SortAlgoSelectState implements UIState {
 
     @Override
     public void handleInput(String input) {
+        AlgorithmRunnerFacade facade = null;
+        switch (input) {
+            case "1":
+                facade = new AlgorithmRunnerFacade(new BubbleSortAlgorithm(), algorithmVisualizer);
+                facade.runAlgorithm();
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            case "5":
+                System.out.print(ANSIEscape.CLEAR_AND_HOME);
+                algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
+                algorithmVisualizer.start();
+                break;
+            default:
+                System.out.println("Invalid input. Please try again.");
+                break;
+        }
     }
 
 }

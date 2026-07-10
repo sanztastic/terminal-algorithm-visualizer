@@ -18,7 +18,7 @@ public class PathFindingAlgoSelectState implements UIState {
         System.out.println("2. A* Algorithm");
         System.out.println("3. Breadth-First Search (BFS)");
         System.out.println("4. Depth-First Search (DFS)");
-        System.out.println("5. Exit");
+        System.out.println("5. Return to Main Menu");
         System.out.print("\nSelect the path finding algorithm to visualize: ");
         Scanner scanner2 = new Scanner(System.in);
         String choice = scanner2.nextLine();
@@ -27,7 +27,6 @@ public class PathFindingAlgoSelectState implements UIState {
 
     @Override
     public void handleInput(String input) {
-        
     }
 
 }

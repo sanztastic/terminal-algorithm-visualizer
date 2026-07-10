@@ -2,6 +2,7 @@ package com.example.state;
 
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
+import com.example.constants.ANSIEscape;
 
 public class AlgorithmTypeSelectionState implements UIState {
     private AlgorithmVisualizer visualizer;
@@ -26,10 +27,12 @@ public class AlgorithmTypeSelectionState implements UIState {
     public void handleInput(String input) {
         switch (input) {
             case "1":
+                System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 visualizer.setState(new SortAlgoSelectState(visualizer));
                 visualizer.start();
                 break;
             case "2":
+                System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 visualizer.setState(new PathFindingAlgoSelectState(visualizer));
                 visualizer.start();
                 break;
