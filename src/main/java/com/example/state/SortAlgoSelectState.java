@@ -3,6 +3,7 @@ package com.example.state;
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
 import com.example.algorithms.BubbleSortAlgorithm;
+import com.example.algorithms.InsertionSort;
 import com.example.constants.ANSIEscape;
 import com.example.facade.AlgorithmRunnerFacade;
 
@@ -38,6 +39,8 @@ public class SortAlgoSelectState implements UIState {
                 facade.runAlgorithm();
                 break;
             case "2":
+                facade = new AlgorithmRunnerFacade(new InsertionSort(), algorithmVisualizer);
+                facade.runAlgorithm();
                 break;
             case "3":
                 break;
@@ -50,6 +53,7 @@ public class SortAlgoSelectState implements UIState {
                 break;
             default:
                 System.out.println("Invalid input. Please try again.");
+                printScreen();
                 break;
         }
     }
