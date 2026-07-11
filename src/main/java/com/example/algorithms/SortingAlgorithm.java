@@ -48,7 +48,7 @@ public abstract class SortingAlgorithm extends Algorithm {
         }
     }
 
-    private void colorBarAccordingToCondition(int col, int ptr1, int ptr2, int sortedIndex) {
+    protected void colorBarAccordingToCondition(int col, int ptr1, int ptr2, int sortedIndex) {
         if (col == ptr1 || col == ptr2)
             System.out.print(ANSIEscape.YELLOW + "██ " + ANSIEscape.RESET);
         else if (col == sortedIndex ||isIndexSortedMap.containsKey(col) ) {

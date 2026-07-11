@@ -10,14 +10,14 @@ public class BubbleSortAlgorithm extends SortingAlgorithm {
                 endIndex = j;
                 //render frames showing the current state with selected ptr to be compared
                 renderFrames(j, j+1, -1);
-                Thread.sleep(200);
+                Thread.sleep(ANIMATION_SPEED);
                 if (array[j] > array[j+1]) {
                     int temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
                     //render frames after the swap has taken place between 2 pointers
                     renderFrames(j, j+1, -1);
-                    Thread.sleep(200);
+                    Thread.sleep(ANIMATION_SPEED);
                 }
                 endIndex = j+1;
             }

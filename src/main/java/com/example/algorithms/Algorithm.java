@@ -3,6 +3,8 @@ package com.example.algorithms;
 import com.example.constants.ANSIEscape;
 
 public abstract class Algorithm {
+    protected static int ANIMATION_SPEED = 200;
+
     public void visualize() throws InterruptedException {
         generateRandomArray();
         System.out.print(ANSIEscape.CLEAR_AND_HOME);

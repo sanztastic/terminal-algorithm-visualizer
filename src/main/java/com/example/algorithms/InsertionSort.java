@@ -7,21 +7,21 @@ public class InsertionSort extends SortingAlgorithm {
             int k = i;
             int j = i-1;
             renderFrames(-1, k, -1);
-            Thread.sleep(200);
+            Thread.sleep(ANIMATION_SPEED);
             while (j>=0 && array[j]>array[k]) {
                 int temp = array[k];
                 array[k] = array[j];
                 array[j] = temp;
                 renderFrames(-1, j, k);
-                Thread.sleep(200);
+                Thread.sleep(ANIMATION_SPEED);
                 j--;
                 k--;
             }
             renderFrames(-1, j, k);
-            Thread.sleep(200);
+            Thread.sleep(ANIMATION_SPEED);
         }
         renderFrames(-1, -1, -1);
-        Thread.sleep(2000);
+        Thread.sleep(ANIMATION_SPEED);
     }
 
 }
