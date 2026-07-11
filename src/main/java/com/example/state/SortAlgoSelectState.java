@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
 import com.example.algorithms.BubbleSortAlgorithm;
 import com.example.algorithms.InsertionSort;
+import com.example.algorithms.SelectionSort;
 import com.example.constants.ANSIEscape;
 import com.example.facade.AlgorithmRunnerFacade;
 
@@ -43,6 +44,8 @@ public class SortAlgoSelectState implements UIState {
                 facade.runAlgorithm();
                 break;
             case "3":
+                facade = new AlgorithmRunnerFacade(new SelectionSort(), algorithmVisualizer);
+                facade.runAlgorithm();
                 break;
             case "4":
                 break;
