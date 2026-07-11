@@ -36,7 +36,7 @@ public abstract class SortingAlgorithm extends Algorithm {
             for (int col = 0; col < array.length; col++) {
                 if(array[col] >= row) {
                     if (ptr1 == -1 && ptr2 == -1 && sortedIndex == -1 ) {
-                        System.out.print(ANSIEscape.GREEN + "██ " + ANSIEscape.RESET);
+                        System.out.print(ANSIEscape.FOREST_GREEN + "██ " + ANSIEscape.RESET);
                         continue;
                     }
                     colorBarAccordingToCondition(col, ptr1, ptr2, sortedIndex);

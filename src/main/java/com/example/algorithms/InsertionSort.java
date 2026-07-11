@@ -21,7 +21,7 @@ public class InsertionSort extends SortingAlgorithm {
             Thread.sleep(200);
         }
         renderFrames(-1, -1, -1);
-        Thread.sleep(200);
+        Thread.sleep(2000);
     }
 
 }
