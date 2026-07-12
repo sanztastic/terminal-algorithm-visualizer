@@ -1,4 +1,6 @@
-package com.example.algorithms;
+package com.example.algorithms.sort;
+
+import com.example.algorithms.SortingAlgorithm;
 
 public class InsertionSort extends SortingAlgorithm {
     @Override

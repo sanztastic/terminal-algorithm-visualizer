@@ -1,6 +1,7 @@
-package com.example.algorithms;
+package com.example.algorithms.sort;
 
 import java.util.Arrays;
+import com.example.algorithms.SortingAlgorithm;
 import com.example.constants.ANSIEscape;
 
 public class MergeSort extends SortingAlgorithm {

@@ -3,10 +3,10 @@ package com.example.state;
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
 import com.example.algorithms.Algorithm;
-import com.example.algorithms.BubbleSortAlgorithm;
-import com.example.algorithms.InsertionSort;
-import com.example.algorithms.MergeSort;
-import com.example.algorithms.SelectionSort;
+import com.example.algorithms.sort.BubbleSortAlgorithm;
+import com.example.algorithms.sort.InsertionSort;
+import com.example.algorithms.sort.MergeSort;
+import com.example.algorithms.sort.SelectionSort;
 import com.example.constants.ANSIEscape;
 import com.example.facade.AlgorithmRunnerFacade;
 
