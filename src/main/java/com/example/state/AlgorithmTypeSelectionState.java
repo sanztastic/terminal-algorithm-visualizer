@@ -26,24 +26,24 @@ public class AlgorithmTypeSelectionState implements UIState {
     @Override
     public void handleInput(String input) {
         switch (input) {
-            case "1":
+            case "1" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 visualizer.setState(new SortAlgoSelectState(visualizer));
                 visualizer.start();
-                break;
-            case "2":
+            }
+            case "2" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 visualizer.setState(new PathFindingAlgoSelectState(visualizer));
                 visualizer.start();
-                break;
-            case "3":
+            }
+            case "3" -> {
                 System.out.println("Exiting the application.");
                 System.exit(0);
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("Invalid choice. Please try again.");
                 printScreen();
-                break;
+            }
         }
     }
 }

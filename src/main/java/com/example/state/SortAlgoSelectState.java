@@ -37,28 +37,22 @@ public class SortAlgoSelectState implements UIState {
     public void handleInput(String input) {
         Algorithm algorithm = null;
         switch (input) {
-            case "1":
-                algorithm = new BubbleSortAlgorithm();
-                break;
-            case "2":
-                algorithm = new  InsertionSort();
-                break;
-            case "3":
-                algorithm = new SelectionSort();
-                break;
-            case "4":
-                algorithm = new MergeSort();
-                break;
-            case "5":
+            case "1" -> algorithm = new BubbleSortAlgorithm();
+            case "2" -> algorithm = new  InsertionSort();
+            case "3" -> algorithm = new SelectionSort();
+            case "4" -> algorithm = new MergeSort();
+            case "5" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
                 algorithmVisualizer.start();
                 return;
-            default:
+            }
+            default -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 System.out.println("Invalid input. Please try again.");
                 printScreen();
                 return;
+            }
         }
         new AlgorithmRunnerFacade(algorithm, algorithmVisualizer).runAlgorithm();
     }

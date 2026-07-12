@@ -2,6 +2,12 @@ package com.example.state;
 
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
+import com.example.algorithms.Algorithm;
+import com.example.algorithms.sort.BubbleSortAlgorithm;
+import com.example.algorithms.sort.InsertionSort;
+import com.example.algorithms.sort.MergeSort;
+import com.example.algorithms.sort.SelectionSort;
+import com.example.constants.ANSIEscape;
 
 public class PathFindingAlgoSelectState implements UIState {
 
@@ -27,6 +33,29 @@ public class PathFindingAlgoSelectState implements UIState {
 
     @Override
     public void handleInput(String input) {
+        Algorithm algorithm = null; 
+
+        switch (input) {
+            case "1" -> algorithm = new BubbleSortAlgorithm();
+            case "2" -> algorithm = new  InsertionSort();
+            case "3" -> algorithm = new SelectionSort();
+            case "4" -> algorithm = new MergeSort();
+            case "5" -> {
+                System.out.print(ANSIEscape.CLEAR_AND_HOME);
+                algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
+                algorithmVisualizer.start();
+                return;
+            }
+            default -> {
+                System.out.print(ANSIEscape.CLEAR_AND_HOME);
+                System.out.println("Invalid input. Please try again.");
+                printScreen();
+                return;
+            }
+        }
+
+        algorithmVisualizer.setState(new MazeAlgoSelectState(algorithm));
+        algorithmVisualizer.start();
     }
 
 }
