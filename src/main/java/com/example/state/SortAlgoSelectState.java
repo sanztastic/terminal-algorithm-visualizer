@@ -19,7 +19,7 @@ public class SortAlgoSelectState implements UIState {
     }
 
     @Override
-    public String printScreen() {
+    public String printScreen(Scanner scanner) {
         System.out.println("================================");
         System.out.println("Select which sorting algorithm to visualize: ");
         System.out.println("1. Bubble Sort");
@@ -28,7 +28,6 @@ public class SortAlgoSelectState implements UIState {
         System.out.println("4. Merge Sort");
         System.out.println("5. Back to Main Menu");
         System.out.print("\nSelect the sorting algorithm to visualize: ");
-        Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
         return choice;
     }
@@ -50,7 +49,7 @@ public class SortAlgoSelectState implements UIState {
             default -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 System.out.println("Invalid input. Please try again.");
-                printScreen();
+                algorithmVisualizer.start();
                 return;
             }
         }

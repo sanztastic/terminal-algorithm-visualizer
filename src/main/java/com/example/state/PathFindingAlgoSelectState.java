@@ -3,10 +3,6 @@ package com.example.state;
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
 import com.example.algorithms.Algorithm;
-import com.example.algorithms.sort.BubbleSortAlgorithm;
-import com.example.algorithms.sort.InsertionSort;
-import com.example.algorithms.sort.MergeSort;
-import com.example.algorithms.sort.SelectionSort;
 import com.example.constants.ANSIEscape;
 
 public class PathFindingAlgoSelectState implements UIState {
@@ -18,7 +14,7 @@ public class PathFindingAlgoSelectState implements UIState {
     }
 
     @Override
-    public String printScreen() {
+    public String printScreen(Scanner scanner) {
         System.out.println("Select which path finding algorithm to visualize: ");
         System.out.println("1. Dijkstra's Algorithm");
         System.out.println("2. A* Algorithm");
@@ -26,8 +22,7 @@ public class PathFindingAlgoSelectState implements UIState {
         System.out.println("4. Depth-First Search (DFS)");
         System.out.println("5. Return to Main Menu");
         System.out.print("\nSelect the path finding algorithm to visualize: ");
-        Scanner scanner2 = new Scanner(System.in);
-        String choice = scanner2.nextLine();
+        String choice = scanner.nextLine();
         return choice;
     }
 
@@ -36,10 +31,7 @@ public class PathFindingAlgoSelectState implements UIState {
         Algorithm algorithm = null; 
 
         switch (input) {
-            case "1" -> algorithm = new BubbleSortAlgorithm();
-            case "2" -> algorithm = new  InsertionSort();
-            case "3" -> algorithm = new SelectionSort();
-            case "4" -> algorithm = new MergeSort();
+            case "1" -> {}
             case "5" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
@@ -49,12 +41,12 @@ public class PathFindingAlgoSelectState implements UIState {
             default -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 System.out.println("Invalid input. Please try again.");
-                printScreen();
+                algorithmVisualizer.start();
                 return;
             }
         }
 
-        algorithmVisualizer.setState(new MazeAlgoSelectState(algorithm));
+        algorithmVisualizer.setState(new MazeAlgoSelectState(algorithmVisualizer, algorithm));
         algorithmVisualizer.start();
     }
 

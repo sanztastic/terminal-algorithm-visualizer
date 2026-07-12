@@ -12,13 +12,12 @@ public class AlgorithmTypeSelectionState implements UIState {
     }
 
     @Override
-    public String printScreen() {
+    public String printScreen(Scanner scanner) {
         System.out.println("Select which algorithm to visualize: ");
         System.out.println("1. Sorting Algorithms");
         System.out.println("2. Path Finding Algorithms");
         System.out.println("3. Exit");
         System.out.print("\nSelect the type of algorithm to visualize: ");
-        Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
         return choice;
     }
@@ -42,7 +41,7 @@ public class AlgorithmTypeSelectionState implements UIState {
             }
             default -> {
                 System.out.println("Invalid choice. Please try again.");
-                printScreen();
+                visualizer.start();
             }
         }
     }
