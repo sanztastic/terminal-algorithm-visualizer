@@ -2,6 +2,7 @@ package com.example.state;
 
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
+import com.example.algorithms.Algorithm;
 import com.example.algorithms.BubbleSortAlgorithm;
 import com.example.algorithms.InsertionSort;
 import com.example.algorithms.MergeSort;
@@ -34,34 +35,32 @@ public class SortAlgoSelectState implements UIState {
 
     @Override
     public void handleInput(String input) {
-        AlgorithmRunnerFacade facade = null;
+        Algorithm algorithm = null;
         switch (input) {
             case "1":
-                facade = new AlgorithmRunnerFacade(new BubbleSortAlgorithm(), algorithmVisualizer);
-                facade.runAlgorithm();
+                algorithm = new BubbleSortAlgorithm();
                 break;
             case "2":
-                facade = new AlgorithmRunnerFacade(new InsertionSort(), algorithmVisualizer);
-                facade.runAlgorithm();
+                algorithm = new  InsertionSort();
                 break;
             case "3":
-                facade = new AlgorithmRunnerFacade(new SelectionSort(), algorithmVisualizer);
-                facade.runAlgorithm();
+                algorithm = new SelectionSort();
                 break;
             case "4":
-                facade = new AlgorithmRunnerFacade(new MergeSort(), algorithmVisualizer);
-                facade.runAlgorithm();
+                algorithm = new MergeSort();
                 break;
             case "5":
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
                 algorithmVisualizer.start();
-                break;
+                return;
             default:
+                System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 System.out.println("Invalid input. Please try again.");
                 printScreen();
-                break;
+                return;
         }
+        new AlgorithmRunnerFacade(algorithm, algorithmVisualizer).runAlgorithm();
     }
 
 }
