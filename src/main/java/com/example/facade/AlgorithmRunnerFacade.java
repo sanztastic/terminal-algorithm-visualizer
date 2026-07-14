@@ -16,6 +16,7 @@ public class AlgorithmRunnerFacade {
         try {
             algorithm.visualize();
         }catch(InterruptedException ex){
+            ex.printStackTrace();
             System.out.println(ex);
         }finally {
             algorithmVisualizer.start();

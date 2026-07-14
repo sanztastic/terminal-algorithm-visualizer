@@ -2,9 +2,10 @@ package com.example.state;
 
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
-import com.example.algorithms.Algorithm;
+import com.example.algorithms.MazeGenerationAlgorithm;
 import com.example.algorithms.PathFindingAlgorithm;
 import com.example.algorithms.PathVisualizationAlgorithm;
+import com.example.algorithms.maze.RecursiveDivision;
 import com.example.constants.ANSIEscape;
 import com.example.facade.AlgorithmRunnerFacade;
 
@@ -20,7 +21,6 @@ public class MazeAlgoSelectState implements UIState {
 
     @Override
     public String printScreen(Scanner scanner) {
-        System.out.print(ANSIEscape.CLEAR_AND_HOME);
         System.out.println("Before finding the shortest path please select the algorithm to generate maze:");
         System.out.println("1. Recursive Division");
         System.out.println("2. Randomized DFS (Recursive Backtracker)");
@@ -34,9 +34,9 @@ public class MazeAlgoSelectState implements UIState {
 
     @Override
     public void handleInput(String input) {
-        Algorithm algorithm = null;
+        MazeGenerationAlgorithm algorithm = null;
         switch (input) {
-            case "1" -> {}
+            case "1" -> algorithm = new RecursiveDivision();
             case "5" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new PathFindingAlgoSelectState(algorithmVisualizer));
@@ -49,7 +49,8 @@ public class MazeAlgoSelectState implements UIState {
                 algorithmVisualizer.start();
                 return;
             }
-    }
-        new AlgorithmRunnerFacade(new PathVisualizationAlgorithm(algorithm, pathFindingAlgorithm), algorithmVisualizer);
+        }
+        new AlgorithmRunnerFacade(new PathVisualizationAlgorithm(algorithm, pathFindingAlgorithm), 
+                algorithmVisualizer).runAlgorithm();
     }    
 }

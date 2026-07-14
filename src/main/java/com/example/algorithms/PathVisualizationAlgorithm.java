@@ -1,5 +1,8 @@
 package com.example.algorithms;
 
+import java.util.Random;
+import com.example.constants.PathConstants;
+
 /**
  *
  * The Java Class that takes in @see MazeGenerationAlgorithm and 
@@ -14,23 +17,40 @@ package com.example.algorithms;
 public class PathVisualizationAlgorithm extends Algorithm {
     private MazeGenerationAlgorithm mazeGenerationAlgorithm;
     private PathFindingAlgorithm pathFindingAlgorithm;
+    private int[][] grid;
     
     public PathVisualizationAlgorithm(MazeGenerationAlgorithm mazeGenerationAlgorithm,
             PathFindingAlgorithm pathFindingAlgorithm) {
         this.mazeGenerationAlgorithm = mazeGenerationAlgorithm;
         this.pathFindingAlgorithm = pathFindingAlgorithm;
+        ANIMATION_SPEED = 50;
     }
 
     @Override
     protected void generateRandomArray() {
-        
+        grid = new int[20][30];
+        setRandomStartAndEndPoint(); 
+    }
+    
+    private void setRandomStartAndEndPoint() {
+        Random random = new Random();
+        int nRow = grid.length;
+        int nCol = grid[0].length;
+        int startRow = random.nextInt(nRow-2) + 1;
+        int startCol = random.nextInt(nCol/5) + 1;
+        int endRow = random.nextInt(nRow-2) + 1;
+        int endCol = random.nextInt(nCol/5 - 1) + nCol - (nCol/6) - 1;
+        grid[startRow][startCol] = PathConstants.START_POINT;
+        grid[endRow][endCol] = PathConstants.END_POINT;
     }
 
     @Override
     protected void processAlgorithm() throws InterruptedException {
-        mazeGenerationAlgorithm.visualize();
-        pathFindingAlgorithm.visualize();
+        mazeGenerationAlgorithm.setGrid(grid);
+        mazeGenerationAlgorithm.generateRandomArray();
+        mazeGenerationAlgorithm.processAlgorithm();
+        //pathFindingAlgorithm.setGrid(mazeGenerationAlgorithm.getGrid());
+        //pathFindingAlgorithm.visualize();
     }
-
 
 }
