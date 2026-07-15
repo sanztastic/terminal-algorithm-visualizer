@@ -18,6 +18,10 @@ public class PathVisualizationAlgorithm extends Algorithm {
     private MazeGenerationAlgorithm mazeGenerationAlgorithm;
     private PathFindingAlgorithm pathFindingAlgorithm;
     private int[][] grid;
+    private int startRow;
+    private int startCol;
+    private int endRow;
+    private int endCol;
     
     public PathVisualizationAlgorithm(MazeGenerationAlgorithm mazeGenerationAlgorithm,
             PathFindingAlgorithm pathFindingAlgorithm) {
@@ -36,21 +40,29 @@ public class PathVisualizationAlgorithm extends Algorithm {
         Random random = new Random();
         int nRow = grid.length;
         int nCol = grid[0].length;
-        int startRow = random.nextInt(nRow-2) + 1;
-        int startCol = random.nextInt(nCol/5) + 1;
-        int endRow = random.nextInt(nRow-2) + 1;
-        int endCol = random.nextInt(nCol/5 - 1) + nCol - (nCol/6) - 1;
+        startRow = random.nextInt(nRow-2) + 1;
+        startCol = random.nextInt(nCol/5) + 1;
+        endRow = random.nextInt(nRow-2) + 1;
+        endCol = random.nextInt(nCol/5 - 1) + nCol - (nCol/6) - 1;
         grid[startRow][startCol] = PathConstants.START_POINT;
         grid[endRow][endCol] = PathConstants.END_POINT;
     }
 
     @Override
     protected void processAlgorithm() throws InterruptedException {
-        mazeGenerationAlgorithm.setGrid(grid);
+        mazeGenerationAlgorithm.grid = grid;
         mazeGenerationAlgorithm.generateRandomArray();
         mazeGenerationAlgorithm.processAlgorithm();
-        //pathFindingAlgorithm.setGrid(mazeGenerationAlgorithm.getGrid());
+        pathFindingAlgorithm.grid = mazeGenerationAlgorithm.grid;
+        setStartAndEndPointCoordinates();
         //pathFindingAlgorithm.visualize();
+    }
+    
+    private void setStartAndEndPointCoordinates() {
+        pathFindingAlgorithm.startRow = startRow;
+        pathFindingAlgorithm.startCol = startCol;
+        pathFindingAlgorithm.endRow = endRow;
+        pathFindingAlgorithm.endCol = endCol;
     }
 
 }

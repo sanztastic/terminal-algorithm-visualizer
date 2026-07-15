@@ -50,12 +50,4 @@ public abstract class MazeGenerationAlgorithm extends Algorithm {
         System.out.print(color);
     }
 
-    public int[][] getGrid() {
-        return grid;
-    }
-
-    public void setGrid(int[][] grid) {
-        this.grid = grid;
-    }
-
 }
