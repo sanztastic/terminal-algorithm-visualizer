@@ -56,7 +56,7 @@ public class RecursiveDivision extends MazeGenerationAlgorithm {
                  ) {
                grid[wy][wx] = PathConstants.WALL;
            } 
-           renderGrid();
+           gridRenderer.renderGrid(grid);
            Thread.sleep(ANIMATION_SPEED);
            wx += dx;
            wy += dy;

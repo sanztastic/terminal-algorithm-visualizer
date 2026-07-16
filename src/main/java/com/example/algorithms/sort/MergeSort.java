@@ -66,10 +66,6 @@ public class MergeSort extends SortingAlgorithm {
 
   @Override
   protected void colorBarAccordingToCondition(int col, int ptr1, int ptr2, int sortedIndex) {
-    //if (col == sortedIndex ||isIndexSortedMap.containsKey(col) ) {
-    //    System.out.print(ANSIEscape.GREEN + "██ " + ANSIEscape.RESET);
-    //    if(sortedIndex != -1) isIndexSortedMap.put(sortedIndex, Boolean.TRUE);
-    //}
        if ( col >= ptr1 && col <= ptr2)
           System.out.print(ANSIEscape.YELLOW + "██ " + ANSIEscape.RESET);
       else
