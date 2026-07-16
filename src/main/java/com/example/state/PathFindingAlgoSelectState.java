@@ -3,6 +3,7 @@ package com.example.state;
 import java.util.Scanner;
 import com.example.AlgorithmVisualizer;
 import com.example.algorithms.PathFindingAlgorithm;
+import com.example.algorithms.path.AStarAlgorithm;
 import com.example.algorithms.path.DijkstraAlgorithm;
 import com.example.constants.ANSIEscape;
 
@@ -32,7 +33,8 @@ public class PathFindingAlgoSelectState implements UIState {
         PathFindingAlgorithm algorithm = null; 
 
         switch (input) {
-            case "1" -> {algorithm = new DijkstraAlgorithm();}
+            case "1" -> algorithm = new DijkstraAlgorithm();
+            case "2" -> algorithm = new AStarAlgorithm();
             case "5" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
