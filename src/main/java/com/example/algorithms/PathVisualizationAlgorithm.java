@@ -55,7 +55,8 @@ public class PathVisualizationAlgorithm extends Algorithm {
         mazeGenerationAlgorithm.processAlgorithm();
         pathFindingAlgorithm.grid = mazeGenerationAlgorithm.grid;
         setStartAndEndPointCoordinates();
-        //pathFindingAlgorithm.visualize();
+        pathFindingAlgorithm.generateRandomArray();
+        pathFindingAlgorithm.processAlgorithm();
     }
     
     private void setStartAndEndPointCoordinates() {

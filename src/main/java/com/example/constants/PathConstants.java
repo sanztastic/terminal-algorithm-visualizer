@@ -6,4 +6,5 @@ public class PathConstants {
     public final static int WALL = 3;
     public final static int DISCOVERED = 4;
     public final static int VISITED = 5;
+    public final static int PATH = 6;
 }

@@ -21,7 +21,10 @@ public class GridRenderer {
         String color = switch(grid[i][j]) {
             case PathConstants.WALL -> ANSIEscape.SILVER + "██" + ANSIEscape.RESET;
             case PathConstants.START_POINT -> ANSIEscape.RED + "██" + ANSIEscape.RESET;
-            case PathConstants.END_POINT -> ANSIEscape.BLUE + "██" + ANSIEscape.RESET;
+            case PathConstants.END_POINT -> ANSIEscape.YELLOW + "██" + ANSIEscape.RESET;
+            case PathConstants.DISCOVERED -> ANSIEscape.BLUE + "██" + ANSIEscape.RESET;
+            case PathConstants.VISITED -> ANSIEscape.PURPLE + "██" + ANSIEscape.RESET;
+            case PathConstants.PATH -> ANSIEscape.GREEN + "██" + ANSIEscape.RESET;
             default -> "  ";
         };
 

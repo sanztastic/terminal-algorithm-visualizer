@@ -11,4 +11,5 @@ public class ANSIEscape {
     public static final String FOREST_GREEN = "\u001B[38;5;28m";
     public static final String RED = "\u001B[31m";
     public static final String BLUE = "\u001B[34m";
+    public static final String PURPLE = "\033[38;5;93m";
 }
