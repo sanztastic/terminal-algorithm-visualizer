@@ -10,9 +10,10 @@ public abstract class PathFindingAlgorithm extends Algorithm {
     protected int startRow;
     protected int startCol;
     protected int endRow;
+    protected int endCol;
     //for getting adjacent neighbour node of current node
     protected static final int[] D_ROW = {-1, 1, 0, 0};
-    protected static final int[] D_COL = {0, 0, -1, 1};  protected int endCol;
+    protected static final int[] D_COL = {0, 0, -1, 1}; 
 
     public PathFindingAlgorithm() {
         this.gridRenderer = new GridRenderer();
