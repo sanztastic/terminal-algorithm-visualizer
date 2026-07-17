@@ -5,6 +5,7 @@ import com.example.AlgorithmVisualizer;
 import com.example.algorithms.PathFindingAlgorithm;
 import com.example.algorithms.path.AStarAlgorithm;
 import com.example.algorithms.path.DijkstraAlgorithm;
+import com.example.algorithms.path.GreedyBFSAlgorithm;
 import com.example.constants.ANSIEscape;
 
 public class PathFindingAlgoSelectState implements UIState {
@@ -20,9 +21,10 @@ public class PathFindingAlgoSelectState implements UIState {
         System.out.println("Select which path finding algorithm to visualize: ");
         System.out.println("1. Dijkstra's Algorithm");
         System.out.println("2. A* Algorithm");
-        System.out.println("3. Breadth-First Search (BFS)");
-        System.out.println("4. Depth-First Search (DFS)");
-        System.out.println("5. Return to Main Menu");
+        System.out.println("3. Greedy Best-First Search");
+        System.out.println("4. Breadth-First Search (BFS)");
+        System.out.println("5. Depth-First Search (DFS)");
+        System.out.println("6. Return to Main Menu");
         System.out.print("\nSelect the path finding algorithm to visualize: ");
         String choice = scanner.nextLine();
         return choice;
@@ -35,7 +37,8 @@ public class PathFindingAlgoSelectState implements UIState {
         switch (input) {
             case "1" -> algorithm = new DijkstraAlgorithm();
             case "2" -> algorithm = new AStarAlgorithm();
-            case "5" -> {
+            case "3" -> algorithm = new GreedyBFSAlgorithm();
+            case "6" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));
                 algorithmVisualizer.start();
