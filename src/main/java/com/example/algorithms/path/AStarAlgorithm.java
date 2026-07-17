@@ -2,7 +2,6 @@ package com.example.algorithms.path;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import java.util.Stack;
 import com.example.algorithms.PathFindingAlgorithm;
 import com.example.algorithms.path.helper.Node;
 import com.example.constants.PathConstants;
@@ -24,12 +23,10 @@ public class AStarAlgorithm extends PathFindingAlgorithm {
                 break;
             if (cell != PathConstants.START_POINT) {
                 grid[current.row][current.column] = PathConstants.VISITED;
-                gridRenderer.renderGrid(grid); 
-                Thread.sleep(ANIMATION_SPEED);
+                renderFrame(); 
             } 
             checkAndOfferNeighbours(current, nodesToVisit); 
-            gridRenderer.renderGrid(grid);
-            Thread.sleep(ANIMATION_SPEED);
+            renderFrame();
         }
         processAndVisualizePath(current);
     }
@@ -56,23 +53,6 @@ public class AStarAlgorithm extends PathFindingAlgorithm {
                         grid[nRow][nCol] = PathConstants.DISCOVERED;
                     nodesToVisit.offer(neighbour);
                 }
-            }
-        }
-    }
-
-    private void processAndVisualizePath(Node current) throws InterruptedException {
-        Stack<Node> pathStack = new Stack<>();
-        while (current != null) {
-            pathStack.push(current);
-            current = current.parent;
-        }
-        while (!pathStack.isEmpty()) {
-            Node path = pathStack.pop();
-            int cell = grid[path.row][path.column];
-            if (cell != PathConstants.START_POINT && cell != PathConstants.END_POINT) {
-                grid[path.row][path.column] = PathConstants.PATH;
-                gridRenderer.renderGrid(grid);
-                Thread.sleep(ANIMATION_SPEED);
             }
         }
     }

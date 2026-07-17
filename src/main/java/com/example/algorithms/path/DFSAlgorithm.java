@@ -22,12 +22,10 @@ public class DFSAlgorithm extends PathFindingAlgorithm {
                 break;
             if (cell != PathConstants.START_POINT) {
                 grid[current.row][current.column] = PathConstants.VISITED;
-                gridRenderer.renderGrid(grid);
-                Thread.sleep(ANIMATION_SPEED);
+                renderFrame();
             }
             checkAndPushNeighbours(current, nodesToVisit);
-            gridRenderer.renderGrid(grid);
-            Thread.sleep(ANIMATION_SPEED);
+            renderFrame();
         }
         processAndVisualizePath(current);
 	}
@@ -53,23 +51,4 @@ public class DFSAlgorithm extends PathFindingAlgorithm {
             }
         }
     }
-
-    private void processAndVisualizePath(Node current) throws InterruptedException {
-        Stack<Node> pathStack = new Stack<>();
-        while (current != null) {
-            pathStack.push(current);
-            current = current.parent;
-        }
-
-        while (!pathStack.isEmpty()) {
-            Node pathNode = pathStack.pop();
-            int cell = grid[pathNode.row][pathNode.column];
-            if (cell != PathConstants.START_POINT && cell != PathConstants.END_POINT) {
-                grid[pathNode.row][pathNode.column] = PathConstants.PATH;
-                gridRenderer.renderGrid(grid);
-                Thread.sleep(ANIMATION_SPEED);
-            }
-        }
-    }
-    
 }
