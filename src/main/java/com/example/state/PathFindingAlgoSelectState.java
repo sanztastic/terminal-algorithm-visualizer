@@ -5,6 +5,7 @@ import com.example.AlgorithmVisualizer;
 import com.example.algorithms.PathFindingAlgorithm;
 import com.example.algorithms.path.AStarAlgorithm;
 import com.example.algorithms.path.BFSAlgorithm;
+import com.example.algorithms.path.DFSAlgorithm;
 import com.example.algorithms.path.DijkstraAlgorithm;
 import com.example.algorithms.path.GreedyBFSAlgorithm;
 import com.example.constants.ANSIEscape;
@@ -40,6 +41,7 @@ public class PathFindingAlgoSelectState implements UIState {
             case "2" -> algorithm = new AStarAlgorithm();
             case "3" -> algorithm = new GreedyBFSAlgorithm();
             case "4" -> algorithm = new BFSAlgorithm();
+            case "5" -> algorithm = new DFSAlgorithm();
             case "6" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new AlgorithmTypeSelectionState(algorithmVisualizer));

@@ -13,6 +13,7 @@ public abstract class SortingAlgorithm extends Algorithm {
     public SortingAlgorithm() {
         array = new int[15];
         isIndexSortedMap = new HashMap<>();
+        ANIMATION_SPEED = 150;
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.example.algorithms;
 import com.example.constants.ANSIEscape;
 
 public abstract class Algorithm {
-    protected static int ANIMATION_SPEED = 200;
+    protected static int ANIMATION_SPEED;
 
     public void visualize() throws InterruptedException {
         generateRandomArray();
