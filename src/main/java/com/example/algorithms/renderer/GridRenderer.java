@@ -3,6 +3,15 @@ package com.example.algorithms.renderer;
 import com.example.constants.ANSIEscape;
 import com.example.constants.PathConstants;
 
+/**
+ * 
+ * A Grid Renderer class as you see by the name which is used 
+ * to render the grid or matrix or multi dimensional array 
+ * for Path Finding ALgorithm and Maze Generation Algorithm.
+ *
+ * @author Shanand Shrestha
+ *
+**/
 public class GridRenderer {
 
     public void renderGrid(int[][] grid) {
