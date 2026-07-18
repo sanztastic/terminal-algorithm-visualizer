@@ -7,6 +7,10 @@ import com.example.constants.PathConstants;
 public class RecursiveDivision extends MazeGenerationAlgorithm {
     private Random random = new Random();
 
+    public RecursiveDivision(boolean fillUpBorder) {
+        super(fillUpBorder);
+    }
+
     @Override
     protected void processAlgorithm() throws InterruptedException {
         int nRow = grid.length;
@@ -56,8 +60,7 @@ public class RecursiveDivision extends MazeGenerationAlgorithm {
                  ) {
                grid[wy][wx] = PathConstants.WALL;
            } 
-           gridRenderer.renderGrid(grid);
-           Thread.sleep(ANIMATION_SPEED);
+           renderFrame();
            wx += dx;
            wy += dy;
         }

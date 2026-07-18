@@ -32,7 +32,7 @@ public class PathVisualizationAlgorithm extends Algorithm {
 
     @Override
     protected void generateRandomArray() {
-        grid = new int[20][30];
+        grid = new int[21][31];
         setRandomStartAndEndPoint(); 
     }
     

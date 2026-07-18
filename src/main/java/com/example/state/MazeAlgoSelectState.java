@@ -5,6 +5,7 @@ import com.example.AlgorithmVisualizer;
 import com.example.algorithms.MazeGenerationAlgorithm;
 import com.example.algorithms.PathFindingAlgorithm;
 import com.example.algorithms.PathVisualizationAlgorithm;
+import com.example.algorithms.maze.RandomizedDFS;
 import com.example.algorithms.maze.RecursiveDivision;
 import com.example.constants.ANSIEscape;
 import com.example.facade.AlgorithmRunnerFacade;
@@ -24,9 +25,9 @@ public class MazeAlgoSelectState implements UIState {
         System.out.println("Before finding the shortest path please select the algorithm to generate maze:");
         System.out.println("1. Recursive Division");
         System.out.println("2. Randomized DFS (Recursive Backtracker)");
-        System.out.println("3. Randomized Prim's Algorithm");
-        System.out.println("4. Randomized Kruskal's Algorithm");
-        System.out.println("5. Return to Main Menu");
+      //System.out.println("3. Randomized Prim's Algorithm");
+      //System.out.println("4. Randomized Kruskal's Algorithm");
+        System.out.println("3. Return to Main Menu");
         System.out.print("\nSelect the Maze Generation algorithm to visualize: ");
         String choice = scanner.nextLine();
         return choice;
@@ -36,8 +37,9 @@ public class MazeAlgoSelectState implements UIState {
     public void handleInput(String input) {
         MazeGenerationAlgorithm algorithm = null;
         switch (input) {
-            case "1" -> algorithm = new RecursiveDivision();
-            case "5" -> {
+            case "1" -> algorithm = new RecursiveDivision(true);
+            case "2" -> algorithm = new RandomizedDFS(false);
+            case "3" -> {
                 System.out.print(ANSIEscape.CLEAR_AND_HOME);
                 algorithmVisualizer.setState(new PathFindingAlgoSelectState(algorithmVisualizer));
                 algorithmVisualizer.start();
