@@ -131,7 +131,7 @@ This project includes implementations and visualizations of:
 Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/Algorithm-Visualizer.git
+git clone https://github.com/sanztastic/terminal-algorithm-visualizer.git
 ```
 
 Navigate into the project
