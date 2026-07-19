@@ -13,7 +13,7 @@ The project was built to recall/strengthen my understanding of algorithms, data 
 # Demo
 
 <p align="center">
-    <img src="docs/gifs/demo.gif" width="850">
+    <img src="docs/gifs/demo.gif" width="650">
 </p>
 
 ---
@@ -149,7 +149,7 @@ mvn compile
 Run
 
 ```bash
-mvn exec:java -Dexec.mainClass="com.example.App.java"
+mvn exec:java -Dexec.mainClass="com.example.App"
 ```
 
 > **Note**
